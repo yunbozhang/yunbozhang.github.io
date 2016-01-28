@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>玻璃</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="CoreDataCoreData的特点
+是数据持久化存储的一种方式，不是一个关系型数据库，也不是关系数据库管理系统；
+数据最终的存储类型可以是：SQLite数据库，XML，二进制，或自定义数据类型
+CoreData的强大之处就在于这种关系可以在一个对象更新时，其关联的对象也会随着更新，相当于你更新一张表的时候，其关联的其他表也会随着更新
+CoreData的另外一个特点就是提供了更简单的性能管理机制">
+<meta property="og:type" content="article">
+<meta property="og:title" content="玻璃">
+<meta property="og:url" content="http://yoursite.com/2016/01/28/CoreData/index.html">
+<meta property="og:site_name" content="玻璃">
+<meta property="og:description" content="CoreDataCoreData的特点
+是数据持久化存储的一种方式，不是一个关系型数据库，也不是关系数据库管理系统；
+数据最终的存储类型可以是：SQLite数据库，XML，二进制，或自定义数据类型
+CoreData的强大之处就在于这种关系可以在一个对象更新时，其关联的对象也会随着更新，相当于你更新一张表的时候，其关联的其他表也会随着更新
+CoreData的另外一个特点就是提供了更简单的性能管理机制">
+<meta property="og:updated_time" content="2016-01-27T08:11:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="玻璃">
+<meta name="twitter:description" content="CoreDataCoreData的特点
+是数据持久化存储的一种方式，不是一个关系型数据库，也不是关系数据库管理系统；
+数据最终的存储类型可以是：SQLite数据库，XML，二进制，或自定义数据类型
+CoreData的强大之处就在于这种关系可以在一个对象更新时，其关联的对象也会随着更新，相当于你更新一张表的时候，其关联的其他表也会随着更新
+CoreData的另外一个特点就是提供了更简单的性能管理机制">
+  
+    <link rel="alternative" href="/atom.xml" title="玻璃" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">ICQ</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>Tags</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">ICQ</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="null" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">ICQ</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-CoreData" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/28/CoreData/" class="article-date">
+  	<time datetime="2016-01-28T06:59:53.000Z" itemprop="datePublished">2016-01-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="CoreData">CoreData</h1><h2 id="CoreData的特点">CoreData的特点</h2><ul>
+<li>是数据持久化存储的一种方式，不是一个关系型数据库，也不是关系数据库管理系统；</li>
+<li>数据最终的存储类型可以是：SQLite数据库，XML，二进制，或自定义数据类型</li>
+<li>CoreData的强大之处就在于这种关系可以在一个对象更新时，其关联的对象也会随着更新，相当于你更新一张表的时候，其关联的其他表也会随着更新</li>
+<li>CoreData的另外一个特点就是提供了更简单的性能管理机制，例如：使用NSFetchedResultsController类，你不用使用SQL的Limit而是使用NSFetchRequest类的setFetchBatchSize()就可以限制查询记录的总数，而NSFetchedResultsController类神奇的地方在于需要获取更多记录的时候，这个类会自动更新其缓存</li>
+<li>对于多表查询上相对来说，CoreData没有SQL直观，但CoreData的功能还是可以完成相关操作的，但是类似外连接，左连接等操作，在CoreData中就显得无力</li>
+<li>只能取出整个实体记录，然后分解，之后才能得到实体的某个属性</li>
+<li>CoreData主要提供对象-关系映射（ORM）功能，把OC对象转化为数据保存到文件，也可以数据转化为OC对象</li>
+</ul>
+<h2 id="CoreData优点">CoreData优点</h2><ul>
+<li>可视化，有undo/redo能力，不用写SQL语句，简化代码</li>
+<li>可以实现多种文件格式NSSQLiteStoreType、NSBinaryStoreType、NSInMemoryStoreType、NSXMLStoreType</li>
+<li>苹果官方API支持，与iOS结合更紧密</li>
+<li>以对象形式存储数据，更符合面向对象的思想<h2 id="SQLite">SQLite</h2></li>
+<li>它是一个轻量级功能强大的关系数据引擎，也很容易嵌入到应用程序，移植性好，可以在多个平台使用，sqlite是嵌入式sql数据库编程</li>
+<li>与CoreData框架不同的是，sqlite是使用程序式的，sql的主要的API来直接操作数据表</li>
+<li>基于C接口，需要使用sql语句，代码繁琐</li>
+<li>在处理大量数据时，表关系更直观</li>
+<li>在OC中不是可视化的</li>
+</ul>
+<h2 id="CoreData构成">CoreData构成</h2><ul>
+<li>NSManagedObjectContext(被管理的数据上下文)</li>
+<li>NSManagedObjectModel(被管理的数据模型)</li>
+<li>NSPersistentStoreCoordinator(持久化存储助理)</li>
+<li>NSManagedObject(被管理的数据记录)</li>
+<li>NSFetchRequest(获取数据的请求)</li>
+<li>NSEntityDescription(实体结构)</li>
+<li>后缀为.xcdatamodeld的包<h2 id="CoreData的工作流程">CoreData的工作流程</h2></li>
+<li>应用程序先创建或读取模型文件(后缀为xcdatamodeld)生成NSManagedModel对象</li>
+<li>然后生成NSManagedObjectContext和NSPersistentStoreCoordinator对象，前者对用户透明地调用、后者对数据文件进行读写</li>
+<li>NSPersistentStoreCoordinator负责从数据文件(xml,sqlite,二进制文件)中读取数据生成NSManagedObject或保存ManagedObject写入数据文件</li>
+<li>NSManagedObjectContext参与对数据进行各种操作的整个过程，它持有ManagedObject，我们通过它来监测ManagedObject，监测数据对象有两个作用：支持undo/redo以及数据绑定，这个类是最常被用到的</li>
+<li>Array Controller，Object Controller，Tree Controller这些控制器一般与NSManagedObjectContext关联，因此我们可以通过他们在nib中可视化地操作数据对象</li>
+</ul>
+<h2 id="CoreData的版本迁移">CoreData的版本迁移</h2><ul>
+<li>升级数据库模型：选中你的mydata.xcdatamodeld文件，选择菜单editor-&gt;Add Model Version 比如取名：mydata2.xcdatamodel</li>
+<li>设置当前版本：选择上级mydata.xcdatamodeld,在inspector中的Versioned Core Data Model选择Current模板为mydata2</li>
+<li>修改新数据模型mydata2，在新的文件中添加，修改或删除字段及表</li>
+<li>在程序启动时添加如下代码：<br><code>NSDictionary *optionsDictionary = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES],
+NSMigratePersistentStoresAutomaticallyOption, [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
+if (![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil
+URL:storeUrl
+options:optionsDictionary
+error:&amp;error]) {
+NSLog(@”failed to add persistent store with type to persistent store coordinator”); }</code></li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/01/28/数据处理之文件读写/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="CoreData" data-title="" data-url="http://yoursite.com/2016/01/28/CoreData/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 ICQ
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
