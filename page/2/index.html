@@ -198,6 +198,93 @@
 
       <div class="body-wrap">
   
+    <article id="post-CoreData" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/28/CoreData/" class="article-date">
+  	<time datetime="2016-01-28T06:59:53.000Z" itemprop="datePublished">2016-01-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="CoreData">CoreData</h1><h2 id="CoreData的特点">CoreData的特点</h2><ul>
+<li>是数据持久化存储的一种方式，不是一个关系型数据库，也不是关系数据库管理系统；</li>
+<li>数据最终的存储类型可以是：SQLite数据库，XML，二进制，或自定义数据类型</li>
+<li>CoreData的强大之处就在于这种关系可以在一个对象更新时，其关联的对象也会随着更新，相当于你更新一张表的时候，其关联的其他表也会随着更新</li>
+<li>CoreData的另外一个特点就是提供了更简单的性能管理机制，例如：使用NSFetchedResultsController类，你不用使用SQL的Limit而是使用NSFetchRequest类的setFetchBatchSize()就可以限制查询记录的总数，而NSFetchedResultsController类神奇的地方在于需要获取更多记录的时候，这个类会自动更新其缓存</li>
+<li>对于多表查询上相对来说，CoreData没有SQL直观，但CoreData的功能还是可以完成相关操作的，但是类似外连接，左连接等操作，在CoreData中就显得无力</li>
+<li>只能取出整个实体记录，然后分解，之后才能得到实体的某个属性</li>
+<li>CoreData主要提供对象-关系映射（ORM）功能，把OC对象转化为数据保存到文件，也可以数据转化为OC对象</li>
+</ul>
+<h2 id="CoreData优点">CoreData优点</h2><ul>
+<li>可视化，有undo/redo能力，不用写SQL语句，简化代码</li>
+<li>可以实现多种文件格式NSSQLiteStoreType、NSBinaryStoreType、NSInMemoryStoreType、NSXMLStoreType</li>
+<li>苹果官方API支持，与iOS结合更紧密</li>
+<li>以对象形式存储数据，更符合面向对象的思想<h2 id="SQLite">SQLite</h2></li>
+<li>它是一个轻量级功能强大的关系数据引擎，也很容易嵌入到应用程序，移植性好，可以在多个平台使用，sqlite是嵌入式sql数据库编程</li>
+<li>与CoreData框架不同的是，sqlite是使用程序式的，sql的主要的API来直接操作数据表</li>
+<li>基于C接口，需要使用sql语句，代码繁琐</li>
+<li>在处理大量数据时，表关系更直观</li>
+<li>在OC中不是可视化的</li>
+</ul>
+<h2 id="CoreData构成">CoreData构成</h2><ul>
+<li>NSManagedObjectContext(被管理的数据上下文)</li>
+<li>NSManagedObjectModel(被管理的数据模型)</li>
+<li>NSPersistentStoreCoordinator(持久化存储助理)</li>
+<li>NSManagedObject(被管理的数据记录)</li>
+<li>NSFetchRequest(获取数据的请求)</li>
+<li>NSEntityDescription(实体结构)</li>
+<li>后缀为.xcdatamodeld的包<h2 id="CoreData的工作流程">CoreData的工作流程</h2></li>
+<li>应用程序先创建或读取模型文件(后缀为xcdatamodeld)生成NSManagedModel对象</li>
+<li>然后生成NSManagedObjectContext和NSPersistentStoreCoordinator对象，前者对用户透明地调用、后者对数据文件进行读写</li>
+<li>NSPersistentStoreCoordinator负责从数据文件(xml,sqlite,二进制文件)中读取数据生成NSManagedObject或保存ManagedObject写入数据文件</li>
+<li>NSManagedObjectContext参与对数据进行各种操作的整个过程，它持有ManagedObject，我们通过它来监测ManagedObject，监测数据对象有两个作用：支持undo/redo以及数据绑定，这个类是最常被用到的</li>
+<li>Array Controller，Object Controller，Tree Controller这些控制器一般与NSManagedObjectContext关联，因此我们可以通过他们在nib中可视化地操作数据对象</li>
+</ul>
+<h2 id="CoreData的版本迁移">CoreData的版本迁移</h2><ul>
+<li>升级数据库模型：选中你的mydata.xcdatamodeld文件，选择菜单editor-&gt;Add Model Version 比如取名：mydata2.xcdatamodel</li>
+<li>设置当前版本：选择上级mydata.xcdatamodeld,在inspector中的Versioned Core Data Model选择Current模板为mydata2</li>
+<li>修改新数据模型mydata2，在新的文件中添加，修改或删除字段及表</li>
+<li>在程序启动时添加如下代码：<br><code>NSDictionary *optionsDictionary = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES],
+NSMigratePersistentStoresAutomaticallyOption, [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
+if (![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil
+URL:storeUrl
+options:optionsDictionary
+error:&amp;error]) {
+NSLog(@”failed to add persistent store with type to persistent store coordinator”); }</code></li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-CocoaPods被卡住" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -215,6 +302,60 @@
       
         <h1 id="使用CocoaPods被卡住:Updating_local_specs_repositories">使用CocoaPods被卡住:Updating local specs repositories</h1><p>pod update 试了还可以用</p>
 <p>pod install  被墙了请大家换成pod install –verbose –no-repo-update</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-CocoaPods最新版" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/28/CocoaPods最新版/" class="article-date">
+  	<time datetime="2016-01-28T06:59:53.000Z" itemprop="datePublished">2016-01-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="CocoaPods安装最新版">CocoaPods安装最新版</h1><p>1.移除现有Ruby默认源<br>$gem sources –remove <a href="https://rubygems.org/" target="_blank" rel="external">https://rubygems.org/</a></p>
+<p>2.使用新的源<br>$gem sources -a <a href="https://ruby.taobao.org/" target="_blank" rel="external">https://ruby.taobao.org/</a>  </p>
+<p>3.验证新源是否替换成功<br>$gem sources -l</p>
+<p>4.安装CocoaPods<br>(1)$sudo gem install cocoapods 备注：苹果系统升级OS X EL Capitan后改为$sudo gem install -n /usr/local/bin cocoapods</p>
+<p>5.更新gem<br>$sudo gem update –system</p>
+<p>6.新建工程，并在终端用cd指令到文件夹内</p>
+<p>$pod search 第三方</p>
+<p>7.新建文件 vim “Podfile”，</p>
+<p>$vim Podfile</p>
+<p>写入以下内容并保存 小提示：（终端vim文件 按 i 可编辑 ，esc 退出编辑，：wq  可保存退出）</p>
+<p>platform:ios, ‘6.0’<br>pod ‘AFNetworking’, ‘~&gt; 2.3.1’    &lt;——-第三方</p>
+<p>8.导入第三方库<br>$pod install</p>
+<p>9.退出终端</p>
 
       
     </div>
