@@ -446,10 +446,10 @@ NSLog(@”failed to add persistent store with type to persistent store coordinat
 
 
   
-    <article id="post-Socket" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-XMPP" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/28/Socket/" class="article-date">
+      <a href="/2016/01/28/XMPP/" class="article-date">
   	<time datetime="2016-01-28T06:59:53.000Z" itemprop="datePublished">2016-01-28</time>
 </a>
     </div>
@@ -461,23 +461,125 @@ NSLog(@”failed to add persistent store with type to persistent store coordinat
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Socket">Socket</h1><h2 id="网络协议方面的知识">网络协议方面的知识</h2><h3 id="TCP/IP">TCP/IP</h3><p>传输控制协议/网间协议<br>四层 应用层 传输层 网络层 网络接口层<br>五层 应用层 传输层 网络层 数据链路层 物理层</p>
-<h3 id="OSI">OSI</h3><p>7层<br>应用层 表示层 会话层 传输层 网络层 数据链路层 物理层</p>
-<h3 id="TCP/UDP">TCP/UDP</h3><h4 id="TCP(传输控制协议-面向连接)">TCP(传输控制协议-面向连接)</h4><ul>
-<li>提供IP环境下的数据可靠传输，有效流控，全双工操作，多路复用服务，是面向连接，端到端的传输；TCP提供超时重发，丢弃重复数据，检验数据，流量控制等功能，保证数据能从一端传到另一端</li>
-<li>面向连接：正式通信钱必须要与对方建立连接，事先为所发送的数据开辟出连接好的通道，然后再进行数据发送，像打电话</li>
-<li>TCP支持的应用协议：Telnet(远程登录)、FTP(文件传输协议)、SMTP(简单邮件传输协议)，TCP用于传输数据量大，可靠性要求高的应用</li>
+        <h1 id="iOS_XMPP">iOS XMPP</h1><h2 id="一、XMPP简介">一、XMPP简介</h2><ul>
+<li>XMPP-可扩展信息与存在协议，是目前主流的四种IM协议之一，其他三种分别为：即时信息和空间协议（IMPP）、空间和即时信息协议（PRIM）、针对即时通讯和空间平衡扩充的进程开始协议SIP（SIMPLE）</li>
 </ul>
-<h4 id="UDP(用户数据报协议-无连接的)">UDP(用户数据报协议-无连接的)</h4><ul>
-<li>面向非链接的，不能提供可靠性、流控、差错恢复功能，UDP用于一次只传送少量数据，可靠性要求低、传输经济等应用。</li>
-<li>UDP支持的应用协议：NFS(网络文件系统)、SNMP(简单网络管理系统)、DNS(主域名称系统)、TFTP(通用文件传输协议)等。</li>
+<h3 id="XMPP系统的特点">XMPP系统的特点</h3><ul>
+<li>客户机/服务器通信模式</li>
+<li>分布式网络</li>
+<li>简单的客户端</li>
+<li>XML的数据格式</li>
 </ul>
-<h4 id="总结">总结</h4><ul>
-<li>TCP：面向连接、传输可靠、用于传输大量数据、速度慢，建立连接需要开销较多</li>
-<li>UDP：面向非连接、传输不可靠、用于传输少量数据、速度快</li>
+<h2 id="二、XMPP工作原理">二、XMPP工作原理</h2><p>协议网络架构<br>XMPP中定义了三个角色：客户端，服务器，网关。</p>
+<ul>
+<li>服务器同时承担了客户端信息记录，连接管理和信息的路由功能。</li>
+<li>网关承担着与异构即时通信系统的互联互通，异构系统可以包括SMS（短信），MSN，ICQ等。</li>
+<li>基本的网络形式是单客户端通过TCP/IP连接到单服务器，然后在之上传输XML。</li>
 </ul>
-<h2 id="Socket介绍">Socket介绍</h2><p>Socket是一个针对TCP和UDP编程的接口，你可以借助它建立TCP连接，Socket是对TCP/IP协议的封装，Socket本身并不是协议，而是一个调用接口（API），通过Socket，我们才能使用TCP/IP协议。在设计模式中，Socket其实就是一个门面模式，它把复杂的TCP/IP协议族隐藏在Socket接口后面，Socket的出现只是使得程序员更方便地使用TCP/IP协议栈而已，是对TCP/IP协议的抽象，从而形成了我们知道到的一些最基本的函数接口。对用户来说，一组简单的接口就是全部，让Socket去组织数据，以符合指定的协议。</p>
-<h2 id="通讯流程">通讯流程</h2><p>建立Socket连接至少需要一对套接字，其中一个运行于客户端，称为ClientSocket，另一个运行于服务器端，称为ServerSocket。<br>套接字之间的连接过程分为三个步骤：服务器监听，客户端请求，连接确认。<br>1.服务器监听：服务器端套接字并不定位具体的客户端套接字，而是处于等待连接状态，实时监控网络状态，等待客户端的连接请求；<br>2.客户端请求：指客户端的套接字提出连接请求，要连接的目标是服务器端的套接字。为此，客户端套接字必须首先描述它要连接的服务器的套接字，指出服务器端套接字的地址和端口号，然后就向服务器端套接字提出连接请求；<br>3.连接确认：当服务器端套接字监听到或者说接收到客户端套接字的连接请求时，就响应客户端套接字的请求，建立一个新的线程，把服务器端套接字的描述发给客户端，一旦客户端确认了此描述，双方就正式建立连接。而服务器端套接子继续处于监听状态，继续接收其他客户端套接字的连接请求。</p>
+<p>XMPP是一个典型的C/S架构，而不是像大多数即时通讯软件一样，使用P2P客户端到客户端的架构，也就是说在大多数情况下，当两个客户端进行通讯时，他们的消息都是通过服务器传递的（也有例外，例如在两个客户端传输文件时）采用这种结构，主要是为了简化客户端，将大多数工作放在服务器端进行，这样客户端的工作就比较简单，而且，当增加功能时，多数在服务器端进行。</p>
+<ul>
+<li>节点连接到服务器</li>
+<li>服务器利用本地目录系统中的证书对其认证</li>
+<li>节点指定目标地址，让服务器告知目标状态</li>
+<li>服务器查找，连接并进行相互验证</li>
+<li>节点之间进行交互</li>
+</ul>
+<h2 id="三、XMPP的优缺点">三、XMPP的优缺点</h2><h3 id="优点">优点</h3><ul>
+<li>开放</li>
+<li>标准</li>
+<li>证实可用，谷歌证实了GTalk</li>
+<li>分布式</li>
+<li>安全</li>
+<li>可扩展</li>
+<li>弹性佳</li>
+<li>多样性</li>
+</ul>
+<h3 id="缺点">缺点</h3><ul>
+<li>数据负载过重XML</li>
+<li>没有二进制传输<h2 id="四、XMPP通讯流程">四、XMPP通讯流程</h2></li>
+</ul>
+<ol>
+<li>首先，由客户端连接到服务器，客户端通过IO流发送一段XML文件，在文件中包含了自身的用户名和密码；</li>
+<li>服务器端接收到客户端的XML文件，从中获取用户名和密码进行验证，如果验证成功，服务器会发送一个XML文件给客户端表明已经登录成功；<ol>
+<li>登录成功后，客户端可以通过发送一个获取好友名单的XML文件，服务器会将当前用户的好友以XML文件传到客户端；</li>
+<li>客户端选择一个好友，向其发送消息（其实是向服务器发送，服务器收到后会转发给对应的好友），好友收到。</li>
+</ol>
+</li>
+</ol>
+<h2 id="五、功能实现">五、功能实现</h2><h3 id="1-导入XMPP框架">1.导入XMPP框架</h3><ul>
+<li>下载XMPPFramework</li>
+<li>导入依赖矿建</li>
+<li>导入一下文件夹</li>
+<li>导入XMPP扩展框架</li>
+</ul>
+<h3 id="2-登录&amp;注销">2.登录&amp;注销</h3><h4 id="2-1登录">2.1登录</h4><ul>
+<li><p>实例化XMPPStream并设置代理，同时添加代理到工作队列      </p>
+</li>
+<li><p>使用JID连接至服务器，默认端口为5222，JID字符串中需要包含服务器的域名     </p>
+</li>
+<li><p>在完成连接的代理方法中验证用户密码，连接完成后XMPPStream的isConnect属性为YES     </p>
+</li>
+<li><p>在验证代理方法中判断用户是否登录成功        </p>
+</li>
+<li><p>上线或者下线成功后，向服务器发送Presence数据，以更新用户在服务器的状态</p>
+</li>
+</ul>
+<h4 id="2-2注销">2.2注销</h4><ul>
+<li>发送 离线 信息</li>
+<li>断开连接</li>
+</ul>
+<h3 id="3-注册">3.注册</h3><ul>
+<li><p>与登录一样，首先发送帐号建立连接</p>
+</li>
+<li><p>连接成功后，发送注册的密码</p>
+</li>
+<li><p>注册成功后，框架会通知代理</p>
+</li>
+</ul>
+<h3 id="4-用户信息">4.用户信息</h3><h3 id="5-好友">5.好友</h3><h3 id="6-消息">6.消息</h3><h3 id="7-文件传送（图片，音频）">7.文件传送（图片，音频）</h3>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Mou使用" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/28/Mou使用/" class="article-date">
+  	<time datetime="2016-01-28T06:59:53.000Z" itemprop="datePublished">2016-01-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Markdown–从入门到精通">Markdown–从入门到精通</h1><h4 id="导语:">导语:</h4><p>Markdown 是一种轻量级的「标记语言」，它的优点很多，目前也被越来越多的写作爱好者，撰稿者广泛使用。看到这里请不要被「标记」、「语言」所迷惑，Markdown 的语法十分简单。常用的标记符号也不超过十个，这种相对于更为复杂的HTML 标记语言来说，Markdown 可谓是十分轻量的，学习成本也不需要太多，且一旦熟悉这种语法规则，会有一劳永逸的效果.</p>
+<h2 id="一-认识Markdown">一.认识Markdown</h2><p>在刚才的导语里提到，Markdown 是一种用来写作的轻量级「标记语言」，它用简洁的语法代替排版，而不像一般我们用的字处理软件 Word 或 Pages 有大量的排版、字体设置。它使我们专心于码字，用「标记」语法，来代替常见的排版格式。例如此文从内容到格式，甚至插图，键盘就可以通通搞定了。目前来看，支持 Markdown 语法的编辑器有很多，包括很多网站（例如简书）也支持了 Markdown 的文字录入。Markdown 从写作到完成，导出格式随心所欲，你可以导出 HTML 格式的文件用来网站发布，也可以十分方便的导出 PDF 格式，这种格式写出的简历更能得到 HR 的好感。甚至可以利用 CloudApp 这种云服务工具直接上传至网页用来分享你的文章，全球最大的轻博客平台 Tumblr，也支持使用 Mou 这类 Markdown 工具进行编辑并直接上传。</p>
+<h2 id="二-Markdown官方文档">二.Markdown官方文档</h2><p>这里可以看到官方的 Markdown 语法规则文档，当然，后文我也会用自己的方式，阐述这些语法在实际使用中的用法。</p>
 
       
     </div>
