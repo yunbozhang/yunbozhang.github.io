@@ -32,7 +32,7 @@ redView和blueView右对齐
 
 需要单个View分析
 blueView通过上,左,右距离相等,可以确定blueView的X,Y,宽;">
-<meta property="og:updated_time" content="2016-03-10T02:45:29.000Z">
+<meta property="og:updated_time" content="2016-03-10T03:41:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="玻璃">
 <meta name="twitter:description" content="AutoLayout需求:
@@ -231,7 +231,7 @@ blueView通过上,左,右距离相等,可以确定blueView的X,Y,宽;">
   
     <div class="article-meta">
       <a href="/2016/03/10/AutoLayout/" class="article-date">
-  	<time datetime="2016-03-10T02:45:29.000Z" itemprop="datePublished">2016-03-10</time>
+  	<time datetime="2016-03-10T03:41:32.000Z" itemprop="datePublished">2016-03-10</time>
 </a>
     </div>
   
@@ -275,6 +275,12 @@ blueView通过上,左,右距离相等,可以确定blueView的X,Y,宽;">
 <li><p>views：返回的也是一个字典，这个字典的意思是：你可以将前面的view用其他字符串来代替，在这里在给他赋给对应的view的名字。</p>
 <p>VFL语言缺点:<br>不支持乘除法,如果有乘除法仍需使用之前代码的方法<br>具体代码详见附件:<a href="http://ac-1xcpPTqJ.clouddn.com/10345526276dc469.zip" target="_blank" rel="external">AutoLayoutEasyCode</a></p>
 </li>
+</ol>
+<h2 id="自动布局小补充">自动布局小补充</h2><ol>
+<li>如果使用VFL语言,如果有相同的值20,可以定义一个变量int a =20,然后把VFL中的20替换为a,然后在metrics中设置字典:@{@”a”:@a};</li>
+<li>可以使用自动布局实现动画,把约束拉为插座变量,然后进行设置<br>`- (void)touchesBegan:(NSSet<uitouch *=""> <em>)touches withEvent:(UIEvent </em>)event {<br> //设置左边约束<br> self.left.constant = 100;<br> //设置顶部约束<br> self.top.constant = 200;<br> [UIView animateWithDuration:2 animations:^{<pre><code><span class="title">[self.view layoutIfNeeded]</span><span class="comment">;</span>
+</code></pre> }];<br>}`</uitouch></li>
+<li>系统控件会根据文字内容确定宽高</li>
 </ol>
 
       
