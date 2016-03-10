@@ -32,10 +32,7 @@ redView和blueView右对齐
 
 需要单个View分析
 blueView通过上,左,右距离相等,可以确定blueView的X,Y,宽;">
-<meta property="og:image" content="http://ac-1xcpPTqJ.clouddn.com/21ae662d15a24652.zip">
-<meta property="og:image" content="http://ac-1xcpPTqJ.clouddn.com/68ec5d56c0ba9375.zip">
-<meta property="og:image" content="http://ac-1xcpPTqJ.clouddn.com/10345526276dc469.zip">
-<meta property="og:updated_time" content="2016-03-10T02:19:24.000Z">
+<meta property="og:updated_time" content="2016-03-10T02:45:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="玻璃">
 <meta name="twitter:description" content="AutoLayout需求:
@@ -234,7 +231,7 @@ blueView通过上,左,右距离相等,可以确定blueView的X,Y,宽;">
   
     <div class="article-meta">
       <a href="/2016/03/10/AutoLayout/" class="article-date">
-  	<time datetime="2016-03-10T02:19:24.000Z" itemprop="datePublished">2016-03-10</time>
+  	<time datetime="2016-03-10T02:45:29.000Z" itemprop="datePublished">2016-03-10</time>
 </a>
     </div>
   
@@ -257,13 +254,13 @@ blueView通过上,左,右距离相等,可以确定blueView的X,Y,宽;">
 <li>需要单个View分析</li>
 <li>blueView通过上,左,右距离相等,可以确定blueView的X,Y,宽;<br>高度50确定blueView的高度</li>
 <li>redView距blueView为20可以确定redView的Y;<br>高度与blueView相等确定redView的高度;<br>宽度是blueView宽度的一半确定redView的高度;</li>
-<li>redView和blueView右对齐确定redView的X;<br>代码详见附件:<img src="http://ac-1xcpPTqJ.clouddn.com/21ae662d15a24652.zip" alt="AutoLayoutNotCode"><h2 id="使用代码实现">使用代码实现</h2>核心:<ol>
+<li>redView和blueView右对齐确定redView的X;<br>代码详见附件:<a href="http://ac-1xcpPTqJ.clouddn.com/21ae662d15a24652.zip" target="_blank" rel="external">AutoLayoutNotCode</a><h2 id="使用代码实现">使用代码实现</h2>核心:<ol>
 <li>如果约束的双方是父子关系添加在父类上</li>
 <li>如果约束的双方是兄弟关系添加在父类上</li>
 <li>如果约束是单方的添加在自身上</li>
 <li>如果约束的双方关系复杂添加到公共的类上</li>
 <li>使用NSLayoutConstraint实现</li>
-<li>前提需要设置translatesAutoresizingMaskIntoConstraints为NO<br>代码详见附件:<img src="http://ac-1xcpPTqJ.clouddn.com/68ec5d56c0ba9375.zip" alt="AutoLayoutCode"></li>
+<li>前提需要设置translatesAutoresizingMaskIntoConstraints为NO<br>代码详见附件:<a href="http://ac-1xcpPTqJ.clouddn.com/68ec5d56c0ba9375.zip" target="_blank" rel="external">AutoLayoutCode</a></li>
 </ol>
 </li>
 </ol>
@@ -276,7 +273,7 @@ blueView通过上,左,右距离相等,可以确定blueView的X,Y,宽;">
 <li>options：是对其方式;</li>
 <li>metrics：返回的是一个字典，它的意思是可以将约束中的值用某些字符串来代理，然后在这个字典中给多对应的字符串赋值，方便修改，并且增加可读性;</li>
 <li><p>views：返回的也是一个字典，这个字典的意思是：你可以将前面的view用其他字符串来代替，在这里在给他赋给对应的view的名字。</p>
-<p>VFL语言缺点:<br>不支持乘除法,如果有乘除法仍需使用之前代码的方法<br>具体代码详见附件:<img src="http://ac-1xcpPTqJ.clouddn.com/10345526276dc469.zip" alt="AutoLayoutEasyCode"></p>
+<p>VFL语言缺点:<br>不支持乘除法,如果有乘除法仍需使用之前代码的方法<br>具体代码详见附件:<a href="http://ac-1xcpPTqJ.clouddn.com/10345526276dc469.zip" target="_blank" rel="external">AutoLayoutEasyCode</a></p>
 </li>
 </ol>
 
