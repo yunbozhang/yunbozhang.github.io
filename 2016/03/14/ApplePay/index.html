@@ -4,17 +4,25 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Archives: 2016 | 玻璃</title>
+  <title>玻璃</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
+  <meta name="description" content="ApplePay准备阶段
+硬件要求：iPhone6及更新的设备，还有iPad air2和iPad mini3之后的平板，以及apple watch。具体型号（截止2016年2月）：iPhone 6，iPhone 6 Plus，iPhone 6s， iPhone 6s Plus；iPad Air 2，iPad mini 3，iPad mini 4，iPad Pro；还有Apple Watch。
+系统">
+<meta property="og:type" content="article">
 <meta property="og:title" content="玻璃">
-<meta property="og:url" content="http://yoursite.com/archives/2016/page/2/index.html">
+<meta property="og:url" content="http://yoursite.com/2016/03/14/ApplePay/index.html">
 <meta property="og:site_name" content="玻璃">
-<meta property="og:description">
+<meta property="og:description" content="ApplePay准备阶段
+硬件要求：iPhone6及更新的设备，还有iPad air2和iPad mini3之后的平板，以及apple watch。具体型号（截止2016年2月）：iPhone 6，iPhone 6 Plus，iPhone 6s， iPhone 6s Plus；iPad Air 2，iPad mini 3，iPad mini 4，iPad Pro；还有Apple Watch。
+系统">
+<meta property="og:image" content="http://ac-1xcpPTqJ.clouddn.com/b9437fe6f80988bf.png">
+<meta property="og:updated_time" content="2016-03-14T07:54:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="玻璃">
-<meta name="twitter:description">
+<meta name="twitter:description" content="ApplePay准备阶段
+硬件要求：iPhone6及更新的设备，还有iPad air2和iPad mini3之后的平板，以及apple watch。具体型号（截止2016年2月）：iPhone 6，iPhone 6 Plus，iPhone 6s， iPhone 6s Plus；iPad Air 2，iPad mini 3，iPad mini 4，iPad Pro；还有Apple Watch。
+系统">
   
     <link rel="alternative" href="/atom.xml" title="玻璃" type="application/atom+xml">
   
@@ -196,194 +204,115 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-ApplePay" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2016/03/14/ApplePay/" class="article-date">
+  	<time datetime="2016-03-14T07:54:54.000Z" itemprop="datePublished">2016-03-14</time>
+</a>
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+    <div class="article-entry" itemprop="articleBody">
       
+        <h1 id="ApplePay">ApplePay</h1><h2 id="准备阶段">准备阶段</h2><ol>
+<li>硬件要求：iPhone6及更新的设备，还有iPad air2和iPad mini3之后的平板，以及apple watch。具体型号（截止2016年2月）：iPhone 6，iPhone 6 Plus，iPhone 6s， iPhone 6s Plus；iPad Air 2，iPad mini 3，iPad mini 4，iPad Pro；还有Apple Watch。</li>
+<li>系统要求：iPhone或iPad至少要升到iOS 9.2版，手表至少watch OS 2.1。</li>
+<li>配置支付环境<ul>
+<li>进入苹果开发者中心，注册App ID。App ID必须是explicit类型，否则无法使用ApplePay服务。</li>
+<li>勾选Apple Pay并点击continue。</li>
+<li>点击submit提交。</li>
+<li>在App IDs中找到刚刚注册成功的App ID，点击edit，对Apple Pay进行配置。</li>
+<li>创建MerchantID。</li>
+<li>配置Apple Pay服务，勾选Merchant ID。</li>
+<li>App ID的apple pay选项变成enable表示配置成功。</li>
+<li>创建Xcode项目，填入刚注册的BundleID。</li>
+<li>在项目的target-&gt;Capabilities中，打开Apple Pay，并勾选Merchant ID。</li>
+</ul>
+</li>
+</ol>
+<h2 id="代码实现">代码实现</h2><ol>
+<li>判断支付环境<ul>
+<li>导入Passkit框架</li>
+<li>判断当前设备是否支持Apple Pay以及wallet中是否有符合所支持网络的银行卡</li>
+<li>若wallet中没有绑定所支持网络的银行卡，则点击按钮跳转到wallet中去绑定银行卡</li>
+<li>若该设备支持Apple Pay并且有绑定所支持网络的银行卡则发起支付请求</li>
+<li>支付请求配置包括国家代码、货币代码、商家ID、商家的处理方式、商家支持的网络、订单的详情，这几个要素缺一不可</li>
+<li>监听用户授权状态</li>
+</ul>
+</li>
+<li>流程可看下图<img src="http://ac-1xcpPTqJ.clouddn.com/b9437fe6f80988bf.png" alt="ApplePay"></li>
+<li>代码详见附件<a href="http://ac-1xcpPTqJ.clouddn.com/2546e05c7816bba8.zip" target="_blank" rel="external">ApplePay</a></li>
+</ol>
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
+    </div>
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/01/28/iOS证书/" class="archive-article-date">
-  	<time datetime="2016-01-28T06:59:53.000Z" itemprop="datePublished">1月 28</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/01/28/HTTP协议与HTTPS协议/" class="archive-article-date">
-  	<time datetime="2016-01-28T06:59:53.000Z" itemprop="datePublished">1月 28</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+<nav id="article-nav">
+  
+  
+    <a href="/2016/03/10/Hexo博客搭建/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/01/28/Socket/" class="archive-article-date">
-  	<time datetime="2016-01-28T06:59:53.000Z" itemprop="datePublished">1月 28</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/01/28/CocoaPods被卡住/" class="archive-article-date">
-  	<time datetime="2016-01-28T06:59:53.000Z" itemprop="datePublished">1月 28</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/01/28/CocoaPods最新版/" class="archive-article-date">
-  	<time datetime="2016-01-28T06:59:53.000Z" itemprop="datePublished">1月 28</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/01/28/数据处理之文件读写/" class="archive-article-date">
-  	<time datetime="2016-01-28T06:59:53.000Z" itemprop="datePublished">1月 28</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/01/28/本地通知和远程通知/" class="archive-article-date">
-  	<time datetime="2016-01-28T06:59:53.000Z" itemprop="datePublished">1月 28</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/01/28/Mou使用/" class="archive-article-date">
-  	<time datetime="2016-01-28T06:59:53.000Z" itemprop="datePublished">1月 28</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2016/">&laquo; Prev</a><a class="page-number" href="/archives/2016/">1</a><span class="page-number current">2</span>
-    </nav>
-  
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="ApplePay" data-title="" data-url="http://yoursite.com/2016/03/14/ApplePay/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 
 </div>
       <footer id="footer">
@@ -409,8 +338,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false
