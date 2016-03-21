@@ -173,6 +173,73 @@
 
       <div class="body-wrap">
   
+    <article id="post-iOS强制横屏" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/21/iOS强制横屏/" class="article-date">
+  	<time datetime="2016-03-21T06:32:05.000Z" itemprop="datePublished">2016-03-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="iOS强制横屏">iOS强制横屏</h1><pre>- (BOOL)shouldAutorotate
+{
+    //是否支持转屏
+    return YES;
+}
+</pre>
+
+<pre>- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+{
+    //支持哪些转屏方向
+    return UIInterfaceOrientationMaskLandscape;
+}
+</pre>
+<pre>- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+{
+   //首选页面的方向
+    return UIInterfaceOrientationLandscapeLeft;
+}
+</pre>
+<pre>
+- (BOOL)prefersStatusBarHidden
+{
+   //是否隐藏状态栏
+    return NO;
+}
+</pre>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Openfire启动失败解决办法" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -724,66 +791,9 @@ hexo <span class="literal">d</span>
 
 
   
-    <article id="post-XML和JSON优缺点" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/28/XML和JSON优缺点/" class="article-date">
-  	<time datetime="2016-01-28T07:31:20.000Z" itemprop="datePublished">2016-01-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="XML">XML</h1><h2 id="XML优缺点">XML优缺点</h2><h3 id="优点：">优点：</h3><ul>
-<li>格式统一，符合标准。</li>
-<li>容易与其他系统进行远程交互, 数据共享比较方便。<h3 id="缺点：">缺点：</h3></li>
-<li>XML文件格式文件庞大，格式复杂， 传输占用带宽。</li>
-<li>服务器端和客户端都需要花费大量代码来解析XML，不论服务器端还是客户端都使代码变的异常复杂和不容易维护。</li>
-<li>客户端不同浏览器之间解析XML的方式不一致，需要重复编写很多代码。</li>
-<li>服务器端和客户端解析XML花费资源和时间。</li>
-</ul>
-<h2 id="JSON优缺点">JSON优缺点</h2><h3 id="优点:">优点:</h3><ul>
-<li>数据格式比较简单，易于读写，格式都是压缩的，占用带宽小。</li>
-<li>易于解析这种语言。</li>
-<li>支持多种语言，包括ActionScript，C，C#，ColdFusion，Java，JavaScript，Perl，PHP，Python，Ruby等语言服务器端语言，便于服务器端的解析。</li>
-<li>因为JSON格式能够直接为服务器端代码使用，大大简化了服务器端和客户端的代码开发量，但是完成的任务不变，且易于维护。<h3 id="缺点:">缺点:</h3></li>
-<li>没有XML格式这么推广的深入人心和使用广泛，没有XML那么通用性。</li>
-<li>JSON格式目前在Web Service中推广还属于初级阶段 。</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>
