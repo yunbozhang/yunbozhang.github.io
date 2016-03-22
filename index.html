@@ -173,6 +173,147 @@
 
       <div class="body-wrap">
   
+    <article id="post-NSFileManager" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/22/NSFileManager/" class="article-date">
+  	<time datetime="2016-03-22T02:07:45.000Z" itemprop="datePublished">2016-03-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="NSFileManager及NSFileHandle">NSFileManager及NSFileHandle</h1><h2 id="创建文件及写入数据">创建文件及写入数据</h2><pre>
+    文件管理器
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+
+    Document路径
+    NSArray *filePathArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+
+    文件路径拼接
+    NSString *filePath = [[filePathArray lastObject] stringByAppendingPathComponent:@"file.txt"];
+
+    创建文件并写入数据
+    [fileManager createFileAtPath:filePath contents:[@"Hello" dataUsingEncoding:NSUTF8StringEncoding] attributes:nil];
+</pre>
+
+<h2 id="向文件中更新数据">向文件中更新数据</h2><pre>
+    文件操作器，向filePath对应路径文件更新数据
+    NSFileHandle *fileHandle = [NSFileHandle fileHandleForUpdatingAtPath:filePath];
+
+    找到文件末尾
+    [fileHandle seekToEndOfFile];
+
+    数据
+    NSString *strFile = @"world";
+
+    数据转换
+    NSData *strData = [strFile dataUsingEncoding:NSUTF8StringEncoding];
+
+    写入文件
+    [fileHandle writeData:strData];
+
+    关闭文件
+    [fileHandle closeFile];
+</pre>
+
+<h2 id="从文件中读取数据">从文件中读取数据</h2><pre>
+    获取数据长度
+    NSUInteger length = [[fileHandle availableData] length];
+
+    偏移量文件的一半
+    [fileHandle seekToFileOffset:length/2.0];
+
+    读出数据
+    NSData * data = [fileHandle readDataToEndOfFile];
+
+    关闭文件
+    [fileHandle closeFile];
+
+    数据转换为字符串
+    NSString * string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+
+    打印读出的数据
+    NSLog(@"====%@",string);
+</pre>
+## 文件复制-从源文件拷贝到目标文件
+<pre>
+源文件路径
+NSString * sourcePath = [[filePathArray lastObject] stringByAppendingPathComponent:@"sourceFile.txt"]; 
+
+创建源文件并写入数据
+[manager createFileAtPath:sourcePath contents:[@"Hello" dataUsingEncoding:NSUTF8StringEncoding] attributes:nil];
+
+目标文件路径 
+NSString * destPath = [[filePathArray lastObject] stringByAppendingPathComponent:@"destFile.txt"];
+
+创建目标文件并写入数据
+BOOL success = [manager createFileAtPath:destPath contents:[@"abcdef" dataUsingEncoding:NSUTF8StringEncoding] attributes:nil];
+
+判读目标文件是否创建成功
+if (!success) {
+        return;
+    }
+
+源文件操作器    
+NSFileHandle *srcFile = [NSFileHandle fileHandleForReadingAtPath:sourcePath];
+
+判断源文件操作器是否创建成功
+if (!srcFile) {
+        return;
+    }
+
+目标文件操作器
+NSFileHandle *destFile = [NSFileHandle fileHandleForWritingAtPath:destPath];
+
+判断目标文件操作器是否创建成功
+if (!destFile) {
+        return;
+    }
+
+将输出文件的长度设为0,(也就是将原来的文件清空)
+[destFile truncateFileAtOffset:0];
+
+读取源文件数据
+NSData *buffer = [srcFile readDataToEndOfFile];
+
+将数据写入目标文件
+[destFile writeData:buffer];
+
+关闭源文件及目标文件
+[srcFile closeFile];
+[destFile closeFile];
+</pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-iOS强制横屏" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -717,54 +858,6 @@ hexo <span class="literal">d</span>
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="类簇">类簇</h1><p>实现类簇的本质就是：<em> 调用父类不同的方法, 得到不同的子类</em>, 它的特点是, 这些方法都是 类方法 .</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-远程推送" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/02/23/远程推送/" class="article-date">
-  	<time datetime="2016-02-23T03:41:38.000Z" itemprop="datePublished">2016-02-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="iOS_远程推送">iOS 远程推送</h1><h2 id="这里只用一幅图来解释远程推送的原理：">这里只用一幅图来解释远程推送的原理：</h2><ul>
-<li>当应用第一次链接苹果 APNS 服务器的时候会上传设备的UDID 和 identifier。</li>
-<li>苹果经过加密后会生成 deviceToken 返回给客户端。</li>
-<li>客户端将返回的 deviceToken 发送给后台服务器，后台服务器存到数据库。</li>
-<li>当后台需要推送消息的时候，后台服务器发送 deviceToken 与需要推送的消息给苹果 APNS服务器，苹果 APNS 服务器通过 deviceToken 发送给客户端所推送的消息。</li>
-</ul>
-<h2 id="推送的核心就是：苹果与手机客户端保持着长链接，通过长链接能随时可以推送给手机设备消息">推送的核心就是：苹果与手机客户端保持着长链接，通过长链接能随时可以推送给手机设备消息</h2><p><img src="http://ac-1xcpptqj.clouddn.com/6d2742081aaa5037.png" alt="Mou icon"></p>
 
       
     </div>
