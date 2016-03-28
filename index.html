@@ -173,6 +173,104 @@
 
       <div class="body-wrap">
   
+    <article id="post-iOS应用程序启动流程" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/28/iOS应用程序启动流程/" class="article-date">
+  	<time datetime="2016-03-28T02:18:46.000Z" itemprop="datePublished">2016-03-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="iOS应用程序运行流程">iOS应用程序运行流程</h1><p><img src="http://ac-1xcpPTqJ.clouddn.com/87e9b94a226cbd20.png" alt="iOS应用程序运行流程"></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Socket(2)" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/23/Socket(2)/" class="article-date">
+  	<time datetime="2016-03-23T06:17:01.000Z" itemprop="datePublished">2016-03-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Socket通信">Socket通信</h1><h2 id="什么是Socket">什么是Socket</h2><p>Socket 英文直译为“孔或插座”，也称为套接字。用于描述 IP 地址和端口号，是一种进程间的通信机制。你可以理解为 IP 地址确定了网内的唯一计算机，而端口号则指定了将消息发送给哪一个应用程序（大多应用程序启动时会主动绑定一个端口，如果不主动绑定，操作系统自动为其分配一个端口）。</p>
+<h2 id="什么是端口">什么是端口</h2><p>一台主机一般运行了多个软件并同时提供一些服务。每种服务都会打开一个 Socket，并绑定到一个端口号上，不同端口对应于不同的应用程序。例如 http 使用 80 端口；ftp 使用 21 端口；smtp 使用 23 端口。</p>
+<h2 id="Socket_的类型">Socket 的类型</h2><ul>
+<li>Stream：一种流式 Socket，针对于面向连接的 TCP 服务应用，安全，但效率低。（本文重点）</li>
+<li>Datagram：数据报式的 Socket，针对于无连接的 UDP 服务应用，不安全（丢失、顺序混乱，往往在接收端要分析完整性、重排、或要求重发），但效率高。</li>
+</ul>
+<h2 id="Socket_程序一般应用模式及运行流程">Socket 程序一般应用模式及运行流程</h2><ul>
+<li><p>服务器端会启动一个 Socket，开始监听端口，监听客户端的连接信息，我们称之为 Watch Socket。</p>
+</li>
+<li><p>客户端 Socket 连接服务器端的监听 Socket，一旦成功连接，服务器端会立刻创建一个新的 Socket 负责与客户端进行通信，之后，客户端将不再与 Watch Socket 通信。</p>
+</li>
+<li><p>Watch Socket 继续监听可能会来自其他客户端的连接。</p>
+</li>
+</ul>
+<p>上述过程就像是实现了一次三方会谈。服务器端的 Socket 至少会有 2 个。一个是 Watch Socket，每成功接收到一个客户端的连接，便在服务器端创建一个通信 Socket。客户端 Socket 指定要连接的服务器端地址和端口，创建一个 Socket 对象来初始化一个到服务器的 TCP 连接。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-NSFileManager" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -769,95 +867,6 @@ hexo <span class="literal">d</span>
 获取总共走的路程 （把每次获取到走了多远累加起来）
 获取平均速度 （用总路程 ／ 总时间）
 </code></pre><p> 具体内容详见附件:<a href="http://ac-1xcpPTqJ.clouddn.com/6ac91c68aeb61071.zip" target="_blank" rel="external">导航工程</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-CLLocation" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/07/CLLocation/" class="article-date">
-  	<time datetime="2016-03-07T02:27:46.000Z" itemprop="datePublished">2016-03-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="CLLocation">CLLocation</h1><h2 id="实现定位:">实现定位:</h2><ol>
-<li>导入相应框架</li>
-<li>使用CLLocationManager类创建对象,指定代理(实现相应代理方法),开始定位</li>
-<li>iOS7(Privacy - Location Usage Description),iO8之后需要自己请求定位,需要在info.plist文件中添加,NSLocationWhenInUseUsageDescription(前台运行)或者NSLocationAlwaysUsageDescription(前台或后台都可以运行)</li>
-<li>具体内容详见附件:<a href="http://ac-1xcpPTqJ.clouddn.com/4d2ce7e23862d78e.zip" target="_blank" rel="external">CLLocation工程</a></li>
-</ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-类簇的简单实现" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/02/23/类簇的简单实现/" class="article-date">
-  	<time datetime="2016-02-23T03:50:13.000Z" itemprop="datePublished">2016-02-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="类簇">类簇</h1><p>实现类簇的本质就是：<em> 调用父类不同的方法, 得到不同的子类</em>, 它的特点是, 这些方法都是 类方法 .</p>
 
       
     </div>
