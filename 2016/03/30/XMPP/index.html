@@ -18,7 +18,7 @@ XML的数据格式
 二、XMPP工作原理协议网络架构XMPP中定义了三个角色：客户端，服">
 <meta property="og:type" content="article">
 <meta property="og:title" content="玻璃">
-<meta property="og:url" content="http://yoursite.com/2016/01/28/XMPP/index.html">
+<meta property="og:url" content="http://yoursite.com/2016/03/30/XMPP/index.html">
 <meta property="og:site_name" content="玻璃">
 <meta property="og:description" content="iOS XMPP一、XMPP简介
 XMPP-可扩展信息与存在协议，是目前主流的四种IM协议之一，其他三种分别为：即时信息和空间协议（IMPP）、空间和即时信息协议（PRIM）、针对即时通讯和空间平衡扩充的进程开始协议SIP（SIMPLE）
@@ -30,7 +30,7 @@ XMPP系统的特点
 XML的数据格式
 
 二、XMPP工作原理协议网络架构XMPP中定义了三个角色：客户端，服">
-<meta property="og:updated_time" content="2016-01-27T02:55:44.000Z">
+<meta property="og:updated_time" content="2016-03-30T08:49:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="玻璃">
 <meta name="twitter:description" content="iOS XMPP一、XMPP简介
@@ -202,8 +202,8 @@ XML的数据格式
       <div class="body-wrap"><article id="post-XMPP" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/28/XMPP/" class="article-date">
-  	<time datetime="2016-01-28T06:59:53.000Z" itemprop="datePublished">2016-01-28</time>
+      <a href="/2016/03/30/XMPP/" class="article-date">
+  	<time datetime="2016-03-30T08:49:45.000Z" itemprop="datePublished">2016-03-30</time>
 </a>
     </div>
   
@@ -289,7 +289,16 @@ XML的数据格式
 <li><p>注册成功后，框架会通知代理</p>
 </li>
 </ul>
-<h3 id="4-用户信息">4.用户信息</h3><h3 id="5-好友">5.好友</h3><h3 id="6-消息">6.消息</h3><h3 id="7-文件传送（图片，音频）">7.文件传送（图片，音频）</h3>
+<h3 id="4-用户信息">4.用户信息</h3><h3 id="5-好友">5.好友</h3><h3 id="6-消息">6.消息</h3><h3 id="7-文件传送（图片，音频）">7.文件传送（图片，音频）</h3><h3 id="8-XAMPP和Openfire配置">8.XAMPP和Openfire配置</h3><ul>
+<li>XAMPP（Apache+MySQL+PHP+PERL）是一个功能强大的建 XAMPP 软件站集成软件包。这个软件包原来的名字是 LAMPP，但是为了避免误解，最新的几个版本就改名为 XAMPP 了。它可以在Windows、Linux、Solaris、Mac OS X 等多种操作系统下安装使用，支持多语言：英文、简体中文、繁体中文、韩文、俄文、日文等。</li>
+<li>许多人通过他们自己的经验认识到安装 Apache 服务器是件不容易的事儿。如果您想添加 MySQL、PHP 和 Perl，那就更难了。XAMPP 是一个易于安装且包含 MySQL、PHP 和 Perl 的 Apache 发行版。XAMPP 的确非常容易安装和使用：只需下载，解压缩，启动即可。</li>
+<li>Openfire 您可以使用它轻易的构建高效率的即时通信服务器.Openfire安装和使用都非常简单，并利用Web进行管理。单台服务器可支持上万并发用户。由于是采用开放的XMPP协议，您可以使用各种支持XMPP协议的IM客户端软件登陆服务.</li>
+<li>XAMPP需要把Manage Servers中三项全部开启</li>
+<li>Openfire的Status需要保持开启,控制器默认用户名admin，密码admin，可以修改密码</li>
+<li>openfire进入控制台需要配置数据库需要本机服务器名和数据库，数据库创建后需要Command+Shift+G 前往文件夹/usr/local  修改openfire的权限，然后复制此路径的文件/usr/local/openfire/resources/database/openfire_mysql.sql，把复制出的文件导入数据库，然后用户名默认为root</li>
+<li>聊天的时候需要区分IP地址和域名</li>
+</ul>
+
       
     </div>
     
@@ -298,17 +307,8 @@ XML的数据格式
     
 <nav id="article-nav">
   
-    <a href="/2016/01/28/CocoaPods被卡住/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/01/28/iOS证书/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/03/30/RunLoop/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title"></div>
       <strong class="article-nav-caption">></strong>
     </a>
@@ -344,7 +344,7 @@ XML的数据格式
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="XMPP" data-title="" data-url="http://yoursite.com/2016/01/28/XMPP/"></div>
+	<div class="ds-thread" data-thread-key="XMPP" data-title="" data-url="http://yoursite.com/2016/03/30/XMPP/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
