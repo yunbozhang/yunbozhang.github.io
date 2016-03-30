@@ -173,6 +173,54 @@
 
       <div class="body-wrap">
   
+    <article id="post-RunLoop" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/30/RunLoop/" class="article-date">
+  	<time datetime="2016-03-30T01:41:30.000Z" itemprop="datePublished">2016-03-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="RunLoop">RunLoop</h1><p>一般来讲，一个线程一次只能执行一个任务，执行完成后线程就会退出。如果我们需要一个机制，让线程能随时处理事件但并不退出，实现这种机制的关键点在于：如何管理事件/消息，如何让线程在没有处理消息时休眠以避免资源占用、在有消息到来时立刻被唤醒。<br>OSX/iOS 系统中，提供了两个这样的对象：NSRunLoop 和 CFRunLoopRef。</p>
+<ul>
+<li><p>CFRunLoopRef 是在 CoreFoundation 框架内的，它提供了纯 C 函数的 API，所有这些 API 都是线程安全的。</p>
+</li>
+<li><p>NSRunLoop 是基于 CFRunLoopRef 的封装，提供了面向对象的 API，但是这些 API 不是线程安全的。</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-iOS应用程序启动流程" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -821,54 +869,6 @@ hexo <span class="literal">d</span>
 </code></pre> }];<br>}`</uitouch></li>
 <li>系统控件会根据文字内容确定宽高</li>
 </ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Navi" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/07/Navi/" class="article-date">
-  	<time datetime="2016-03-07T03:18:35.000Z" itemprop="datePublished">2016-03-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="导航">导航</h1><h2 id="实现导航:">实现导航:</h2><p> CLLocation的属性timestamp是当前获取到为止信息的时间</p>
-<pre><code>获取走了多远（这一次的位置 减去上一次的位置）
-获取走这段路花了多少时间 （这一次的时间 减去上一次的时间）
-获取速度 （走了多远 ／ 花了多少时间）
-获取总共走的路程 （把每次获取到走了多远累加起来）
-获取平均速度 （用总路程 ／ 总时间）
-</code></pre><p> 具体内容详见附件:<a href="http://ac-1xcpPTqJ.clouddn.com/6ac91c68aeb61071.zip" target="_blank" rel="external">导航工程</a></p>
 
       
     </div>
