@@ -173,6 +173,184 @@
 
       <div class="body-wrap">
   
+    <article id="post-ApplePay" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/14/ApplePay/" class="article-date">
+  	<time datetime="2016-03-14T07:54:54.000Z" itemprop="datePublished">2016-03-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="ApplePay">ApplePay</h1><h2 id="准备阶段">准备阶段</h2><ol>
+<li>硬件要求：iPhone6及更新的设备，还有iPad air2和iPad mini3之后的平板，以及apple watch。具体型号（截止2016年2月）：iPhone 6，iPhone 6 Plus，iPhone 6s， iPhone 6s Plus；iPad Air 2，iPad mini 3，iPad mini 4，iPad Pro；还有Apple Watch。</li>
+<li>系统要求：iPhone或iPad至少要升到iOS 9.2版，手表至少watch OS 2.1。</li>
+<li>配置支付环境<ul>
+<li>进入苹果开发者中心，注册App ID。App ID必须是explicit类型，否则无法使用ApplePay服务。</li>
+<li>勾选Apple Pay并点击continue。</li>
+<li>点击submit提交。</li>
+<li>在App IDs中找到刚刚注册成功的App ID，点击edit，对Apple Pay进行配置。</li>
+<li>创建MerchantID。</li>
+<li>配置Apple Pay服务，勾选Merchant ID。</li>
+<li>App ID的apple pay选项变成enable表示配置成功。</li>
+<li>创建Xcode项目，填入刚注册的BundleID。</li>
+<li>在项目的target-&gt;Capabilities中，打开Apple Pay，并勾选Merchant ID。</li>
+</ul>
+</li>
+</ol>
+<h2 id="代码实现">代码实现</h2><ol>
+<li>判断支付环境<ul>
+<li>导入Passkit框架</li>
+<li>判断当前设备是否支持Apple Pay以及wallet中是否有符合所支持网络的银行卡</li>
+<li>若wallet中没有绑定所支持网络的银行卡，则点击按钮跳转到wallet中去绑定银行卡</li>
+<li>若该设备支持Apple Pay并且有绑定所支持网络的银行卡则发起支付请求</li>
+<li>支付请求配置包括国家代码、货币代码、商家ID、商家的处理方式、商家支持的网络、订单的详情，这几个要素缺一不可</li>
+<li>监听用户授权状态</li>
+</ul>
+</li>
+<li>流程可看下图<img src="http://ac-1xcpPTqJ.clouddn.com/b9437fe6f80988bf.png" alt="ApplePay"></li>
+<li>代码详见附件<a href="http://ac-1xcpPTqJ.clouddn.com/2546e05c7816bba8.zip" target="_blank" rel="external">ApplePay</a></li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Hexo博客搭建" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/10/Hexo博客搭建/" class="article-date">
+  	<time datetime="2016-03-10T05:55:40.000Z" itemprop="datePublished">2016-03-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Hexo博客搭建">Hexo博客搭建</h1><p>步骤如下:</p>
+<ol>
+<li>环境搭建<ul>
+<li>安装git （因为要给github上传文章）<br>Windows: 直接下载和安装<br>Mac：进入git网站下载和安装，或者进入<a href="http://git-scm.com" target="_blank" rel="external">这里</a>下载</li>
+<li>安装Node.js（因为Hexo是基于Node.js开发的）<br>打开终端复制粘贴命令 sudo apt-get install git-core<br>安装Node.js,点击<a href="https://nodejs.org/en/" target="_blank" rel="external">这里</a></li>
+<li>安装git</li>
+</ul>
+</li>
+<li>安装配置Hexo</li>
+</ol>
+<p>第二步：安装和配置Hexo</p>
+<p>上面的环境配置成功以后就可以使用npm安装Hexo了</p>
+<pre><code>npm <span class="operator"><span class="keyword">install</span> -<span class="keyword">g</span> hexo-cli</span>
+</code></pre><p>然后在本地目录创建一个文件夹,比如我创建的是一个Hexo文件夹,然后cd到Hexo文件夹，也就是进去这个文件夹,然后依次执行下面的命令</p>
+<pre><code>hexo init
+npm <span class="keyword">install</span>
+</code></pre><p>如果出现很多串代码的话，没有什么明显的错误就表示安装成功。</p>
+<p>然后启动本地这个Hexo服务</p>
+<pre><code>hexo <span class="keyword">server</span>
+</code></pre><p>然后打开浏览器，输入<a href="http://0.0.0.0:4000/" target="_blank" rel="external">http://0.0.0.0:4000/</a> 出现下图，既证明Hexo安装成功,显示的网站你可能看着不好看，现在我们更改一下主题<br>按ctrl+c关闭server<br>我博客使用的<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">主题</a>,打开终端窗口，输入一下命令，将目录切换到Hexo文件夹内的themes文件夹内</p>
+<pre><code><span class="built_in">cd</span> themes
+</code></pre><p>然后把这个主题从github网站上clone下来</p>
+<pre><code>git <span class="keyword">clone</span> <span class="title">https</span>://github.com/litten/hexo-theme-yilia.git
+</code></pre><p>等待克隆完成，你会在themes文件夹下看到新的主题包，如下图，将这个主题包重命名为yilla</p>
+<p>然后打开Hexo文件夹下面的_config.yml文件，修改里面的theme为yilia</p>
+<p>重新打开server，浏览器输入<a href="http://0.0.0.0:4000/" target="_blank" rel="external">http://0.0.0.0:4000/</a><br>好了，到此为止我们已经完成了本地Hexo的安装和配置。</p>
+<ol>
+<li>配置github仓库<br><a href="http://www.github.com" target="_blank" rel="external">github官网</a></li>
+</ol>
+<p>注册账号,然后创建一个的放博客文章的仓库,然后点击Crete a repositor,配置你博客的访问地址，也就是仓库名 用户名.github.io必须是这个结构，会初始化一个空的仓库（因为我已经有一个这样的仓库了，所以会有红色警告）<br>然后就是配置SSH<br>简单方法：<br>去这个网站下载github的客户端(<a href="https://desktop.github.com" target="_blank" rel="external">https://desktop.github.com</a>) 然后输入你的用户名，会自动配置好SSH<br>命令行方法：<br>执行下面命令生成SSH</p>
+<pre><code>ssh-keygen
+</code></pre><p>敲三次回车，既可以生成id_rsa.pub文件，这里面就是SSH key的内容</p>
+<p>然后使用vim编辑器打开这个文件</p>
+<pre><code>vim ~<span class="regexp">/.ssh/id</span>_rsa.pub
+</code></pre><p>然后使用鼠标拷贝里面的内容（退出vim编辑器命令:wq）</p>
+<p>打开你的github,点击Setting<br>点击左边SSH keys<br>点击右边Add SSH</p>
+<p>然后把复制的内容粘贴到下面那个框里面，title随便自己写。</p>
+<p>过程可能会让你输入一次密码，输入即可！<br>配置好就行了</p>
+<p>判断SSH是否配置好</p>
+<p>ssh -T git@github.com<br>出现Hi CoderTian! You’ve successfully authenticated, but GitHub does not provide shell access. 就表示你已经配置好了SSH</p>
+<p>SSH配置好了，下面配置你的本地Hexo</p>
+<p>打开Hexo目录下的_config.yml，拉倒最下面<br>配置为这样子,只需要把codertian改为你自己的github用户名就可以了。<br>这种提交方式是使用http方式提交的，我个人测试的是不需要配置SSH也可以提交</p>
+<p>下面的配置大家要注意空格，复制我的更改即可，记住一定要是https，不能为http,不然会报错</p>
+<h1 id="Deployment">Deployment</h1><h2 id="Docs:_http://hexo-io/docs/deployment-html">Docs: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">http://hexo.io/docs/deployment.html</a></h2><p>deploy:<br>  type: git<br>  repository: <a href="https://github.com/codertian/codertian.github.io.git" target="_blank" rel="external">https://github.com/codertian/codertian.github.io.git</a><br>  branch: master<br>保存，cd到Hexo的根目录<br>依次执行下面的命令</p>
+<pre><code>hexo clean
+hexo <span class="keyword">g</span>
+hexo <span class="literal">d</span>
+</code></pre><p>如果出现下图既证明已经没有出现问题</p>
+<p>如果出现失败的提示可以把上面的配置改为下面这种使用SSH方式的提交，把用户名改为你自己的用户名</p>
+<h1 id="Deployment-1">Deployment</h1><h2 id="Docs:_http://hexo-io/docs/deployment-html-1">Docs: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">http://hexo.io/docs/deployment.html</a></h2><p>deploy:<br>  type: git<br>  repository: git@github.com:codertian/codertian.github.io.git<br>  branch: master<br>第一次上传可能会让你输入git的用户名和密码</p>
+<p>如果成功的话在浏览器输入(<a href="http://codertian.github.io" target="_blank" rel="external">http://codertian.github.io</a>) 就可以访问你的博客了。把用户名换为你自己的。</p>
+<p>好了，到这里为止，你已经完成了自己博客的创建了</p>
+<ol>
+<li>配置自己的网址（也叫域名）<br>首先去<a href="http://wanwang.aliyun.com" target="_blank" rel="external">万网</a> 购买自己的域名，比如我购买的是（codertian.com）<br>然后去github，点击进去你创建的那个博客仓库点击create a new file here<br>名字为CNAME<br>内容为www.codertian.com记住填写你自己申请的域名<br>然后提交<br>来到仓库的右边点击Download zip按钮，下载下来这个仓库，把里面的CNAME文件拖到Hexo文件的Source目录下<br>这边配置好了以后，来到万网解析你的域名<br>配置为这样子</li>
+</ol>
+<p>github提供了两个主机地址</p>
+<p>192.30.252.153<br>192.30.252.154<br>好了等待你的域名解析生效吧。就可以在浏览器里面输入你自己的域名访问的博客了。</p>
+<ol>
+<li>创建和发布文章<br>想要发布新的文章，首先创建<br>cd到Hexo文件夹</li>
+</ol>
+<p>hexo new “文章标题”<br>你可以在Hexo-&gt;Source-&gt;_post目录下看到你新创建的那个文章，还有一个配套的文件夹，里面放这边博文的图片资源</p>
+<p>使用支持MarkDown编辑器编写的打开新创建的文件，就可以写文章了，要根据MarkDown语法写出来的文章才会好看</p>
+<p>Mac的markdown编辑器，我推荐mou<br>window下面的大家可以自行搜索一下</p>
+<p>文章写好直接执行下面命令即可直接发布文章</p>
+<p>hexo d -g<br>如果发布时候出现错误</p>
+<p>ERROR Deployer not found: git<br>执行</p>
+<p>npm install hexo-deployer-git –save</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-AutoLayout" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -496,57 +674,6 @@
 
 
   
-    <article id="post-本地通知和远程通知" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/28/本地通知和远程通知/" class="article-date">
-  	<time datetime="2016-01-28T06:59:53.000Z" itemprop="datePublished">2016-01-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="本地通知和远程通知">本地通知和远程通知</h1><h2 id="本地通知">本地通知</h2><ol>
-<li>本地通知是由本地应用触发的，它是基于时间行为的一种通知形式，例如闹钟定时、待办事项提醒，又或者一个应用在一段时候后不使用通常会提示用户使用此应用等都是本地通知。</li>
-<li>创建一个本地通知通常分为以下几个步骤： 1）创建UILocalNotification  2）设置处理通知的时间fireDate  3）配置通知的内容：通知主体、通知声音、图标数字等 4）配置通知传递的自定义数据参数userInfo（这一步可选） 5）调用通知，可以使用scheduleLocalNotification:按计划调度一个通知，也可以使用presentLocalNotificationNow立即调用通知。</li>
-</ol>
-<h2 id="远程通知">远程通知</h2><p>远程推送是由应用服务提供商发起的，通过苹果的APNs（Apple Push Notification Server）发送到应用客户端</p>
-<p>1、应用程序注册消息推送。</p>
-<p>2、iOS从APNS Server获取device token，应用程序接收device token。</p>
-<p>3、应用程序将device token发送给PUSH服务端程序。</p>
-<p>4、服务端程序向APNS服务发送消息。</p>
-<p>5、APNS服务将消息发送给iPhone应用程序</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-Mou使用" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -565,64 +692,6 @@
         <h1 id="Markdown–从入门到精通">Markdown–从入门到精通</h1><h4 id="导语:">导语:</h4><p>Markdown 是一种轻量级的「标记语言」，它的优点很多，目前也被越来越多的写作爱好者，撰稿者广泛使用。看到这里请不要被「标记」、「语言」所迷惑，Markdown 的语法十分简单。常用的标记符号也不超过十个，这种相对于更为复杂的HTML 标记语言来说，Markdown 可谓是十分轻量的，学习成本也不需要太多，且一旦熟悉这种语法规则，会有一劳永逸的效果.</p>
 <h2 id="一-认识Markdown">一.认识Markdown</h2><p>在刚才的导语里提到，Markdown 是一种用来写作的轻量级「标记语言」，它用简洁的语法代替排版，而不像一般我们用的字处理软件 Word 或 Pages 有大量的排版、字体设置。它使我们专心于码字，用「标记」语法，来代替常见的排版格式。例如此文从内容到格式，甚至插图，键盘就可以通通搞定了。目前来看，支持 Markdown 语法的编辑器有很多，包括很多网站（例如简书）也支持了 Markdown 的文字录入。Markdown 从写作到完成，导出格式随心所欲，你可以导出 HTML 格式的文件用来网站发布，也可以十分方便的导出 PDF 格式，这种格式写出的简历更能得到 HR 的好感。甚至可以利用 CloudApp 这种云服务工具直接上传至网页用来分享你的文章，全球最大的轻博客平台 Tumblr，也支持使用 Mou 这类 Markdown 工具进行编辑并直接上传。</p>
 <h2 id="二-Markdown官方文档">二.Markdown官方文档</h2><p>这里可以看到官方的 Markdown 语法规则文档，当然，后文我也会用自己的方式，阐述这些语法在实际使用中的用法。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Socket" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/28/Socket/" class="article-date">
-  	<time datetime="2016-01-28T06:59:53.000Z" itemprop="datePublished">2016-01-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Socket">Socket</h1><h2 id="网络协议方面的知识">网络协议方面的知识</h2><h3 id="TCP/IP">TCP/IP</h3><p>传输控制协议/网间协议<br>四层 应用层 传输层 网络层 网络接口层<br>五层 应用层 传输层 网络层 数据链路层 物理层</p>
-<h3 id="OSI">OSI</h3><p>7层<br>应用层 表示层 会话层 传输层 网络层 数据链路层 物理层</p>
-<h3 id="TCP/UDP">TCP/UDP</h3><h4 id="TCP(传输控制协议-面向连接)">TCP(传输控制协议-面向连接)</h4><ul>
-<li>提供IP环境下的数据可靠传输，有效流控，全双工操作，多路复用服务，是面向连接，端到端的传输；TCP提供超时重发，丢弃重复数据，检验数据，流量控制等功能，保证数据能从一端传到另一端</li>
-<li>面向连接：正式通信钱必须要与对方建立连接，事先为所发送的数据开辟出连接好的通道，然后再进行数据发送，像打电话</li>
-<li>TCP支持的应用协议：Telnet(远程登录)、FTP(文件传输协议)、SMTP(简单邮件传输协议)，TCP用于传输数据量大，可靠性要求高的应用</li>
-</ul>
-<h4 id="UDP(用户数据报协议-无连接的)">UDP(用户数据报协议-无连接的)</h4><ul>
-<li>面向非链接的，不能提供可靠性、流控、差错恢复功能，UDP用于一次只传送少量数据，可靠性要求低、传输经济等应用。</li>
-<li>UDP支持的应用协议：NFS(网络文件系统)、SNMP(简单网络管理系统)、DNS(主域名称系统)、TFTP(通用文件传输协议)等。</li>
-</ul>
-<h4 id="总结">总结</h4><ul>
-<li>TCP：面向连接、传输可靠、用于传输大量数据、速度慢，建立连接需要开销较多</li>
-<li>UDP：面向非连接、传输不可靠、用于传输少量数据、速度快</li>
-</ul>
-<h2 id="Socket介绍">Socket介绍</h2><p>Socket是一个针对TCP和UDP编程的接口，你可以借助它建立TCP连接，Socket是对TCP/IP协议的封装，Socket本身并不是协议，而是一个调用接口（API），通过Socket，我们才能使用TCP/IP协议。在设计模式中，Socket其实就是一个门面模式，它把复杂的TCP/IP协议族隐藏在Socket接口后面，Socket的出现只是使得程序员更方便地使用TCP/IP协议栈而已，是对TCP/IP协议的抽象，从而形成了我们知道到的一些最基本的函数接口。对用户来说，一组简单的接口就是全部，让Socket去组织数据，以符合指定的协议。</p>
-<h2 id="通讯流程">通讯流程</h2><p>建立Socket连接至少需要一对套接字，其中一个运行于客户端，称为ClientSocket，另一个运行于服务器端，称为ServerSocket。<br>套接字之间的连接过程分为三个步骤：服务器监听，客户端请求，连接确认。<br>1.服务器监听：服务器端套接字并不定位具体的客户端套接字，而是处于等待连接状态，实时监控网络状态，等待客户端的连接请求；<br>2.客户端请求：指客户端的套接字提出连接请求，要连接的目标是服务器端的套接字。为此，客户端套接字必须首先描述它要连接的服务器的套接字，指出服务器端套接字的地址和端口号，然后就向服务器端套接字提出连接请求；<br>3.连接确认：当服务器端套接字监听到或者说接收到客户端套接字的连接请求时，就响应客户端套接字的请求，建立一个新的线程，把服务器端套接字的描述发给客户端，一旦客户端确认了此描述，双方就正式建立连接。而服务器端套接子继续处于监听状态，继续接收其他客户端套接字的连接请求。</p>
 
       
     </div>

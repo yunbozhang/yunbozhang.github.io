@@ -6,25 +6,28 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>玻璃</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="CocoaPods安装最新版1.移除现有Ruby默认源$gem sources –remove https://rubygems.org/
-2.使用新的源$gem sources -a https://ruby.taobao.org/  
-3.验证新源是否替换成功$gem sources -l
-4.安装CocoaPods(1)$sudo gem install cocoapods 备注：苹果系统升">
+  <meta name="description" content="CocoaPods安装最新版iOS开发时，项目中会引用许多第三方库，CocoaPods可以用来方便的统一管理这些第三方库。
+Ruby环境搭建1.Mac  OS本身自带Ruby，但还是更新一下保险，因为我第一次安装在没有更新Ruby的情况下就失败了。
+
+查看下当前ruby版本：打开终端输入 ruby -v（确实安装了，不过用这个版本接下来工作失败了，所以更新下ruby）
+更新ruby 1) 移除现有">
 <meta property="og:type" content="article">
 <meta property="og:title" content="玻璃">
-<meta property="og:url" content="http://yoursite.com/2016/01/28/CocoaPods最新版/index.html">
+<meta property="og:url" content="http://yoursite.com/2016/04/13/CocoaPods最新版/index.html">
 <meta property="og:site_name" content="玻璃">
-<meta property="og:description" content="CocoaPods安装最新版1.移除现有Ruby默认源$gem sources –remove https://rubygems.org/
-2.使用新的源$gem sources -a https://ruby.taobao.org/  
-3.验证新源是否替换成功$gem sources -l
-4.安装CocoaPods(1)$sudo gem install cocoapods 备注：苹果系统升">
-<meta property="og:updated_time" content="2016-01-25T03:55:12.000Z">
+<meta property="og:description" content="CocoaPods安装最新版iOS开发时，项目中会引用许多第三方库，CocoaPods可以用来方便的统一管理这些第三方库。
+Ruby环境搭建1.Mac  OS本身自带Ruby，但还是更新一下保险，因为我第一次安装在没有更新Ruby的情况下就失败了。
+
+查看下当前ruby版本：打开终端输入 ruby -v（确实安装了，不过用这个版本接下来工作失败了，所以更新下ruby）
+更新ruby 1) 移除现有">
+<meta property="og:updated_time" content="2016-04-13T01:55:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="玻璃">
-<meta name="twitter:description" content="CocoaPods安装最新版1.移除现有Ruby默认源$gem sources –remove https://rubygems.org/
-2.使用新的源$gem sources -a https://ruby.taobao.org/  
-3.验证新源是否替换成功$gem sources -l
-4.安装CocoaPods(1)$sudo gem install cocoapods 备注：苹果系统升">
+<meta name="twitter:description" content="CocoaPods安装最新版iOS开发时，项目中会引用许多第三方库，CocoaPods可以用来方便的统一管理这些第三方库。
+Ruby环境搭建1.Mac  OS本身自带Ruby，但还是更新一下保险，因为我第一次安装在没有更新Ruby的情况下就失败了。
+
+查看下当前ruby版本：打开终端输入 ruby -v（确实安装了，不过用这个版本接下来工作失败了，所以更新下ruby）
+更新ruby 1) 移除现有">
   
     <link rel="alternative" href="/atom.xml" title="玻璃" type="application/atom+xml">
   
@@ -184,8 +187,8 @@
       <div class="body-wrap"><article id="post-CocoaPods最新版" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/28/CocoaPods最新版/" class="article-date">
-  	<time datetime="2016-01-28T06:59:53.000Z" itemprop="datePublished">2016-01-28</time>
+      <a href="/2016/04/13/CocoaPods最新版/" class="article-date">
+  	<time datetime="2016-04-13T01:55:13.000Z" itemprop="datePublished">2016-04-13</time>
 </a>
     </div>
   
@@ -196,18 +199,30 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="CocoaPods安装最新版">CocoaPods安装最新版</h1><p>1.移除现有Ruby默认源<br>$gem sources –remove <a href="https://rubygems.org/" target="_blank" rel="external">https://rubygems.org/</a></p>
-<p>2.使用新的源<br>$gem sources -a <a href="https://ruby.taobao.org/" target="_blank" rel="external">https://ruby.taobao.org/</a>  </p>
-<p>3.验证新源是否替换成功<br>$gem sources -l</p>
-<p>4.安装CocoaPods<br>(1)$sudo gem install cocoapods 备注：苹果系统升级OS X EL Capitan后改为$sudo gem install -n /usr/local/bin cocoapods</p>
-<p>5.更新gem<br>$sudo gem update –system</p>
-<p>6.新建工程，并在终端用cd指令到文件夹内</p>
+        <h1 id="CocoaPods安装最新版">CocoaPods安装最新版</h1><p>iOS开发时，项目中会引用许多第三方库，CocoaPods可以用来方便的统一管理这些第三方库。</p>
+<h2 id="Ruby环境搭建">Ruby环境搭建</h2><p>1.Mac  OS本身自带Ruby，但还是更新一下保险，因为我第一次安装在没有更新Ruby的情况下就失败了。</p>
+<ul>
+<li>查看下当前ruby版本：打开终端输入 ruby -v（确实安装了，不过用这个版本接下来工作失败了，所以更新下ruby）</li>
+<li>更新ruby<br> 1) 移除现有Ruby默认源<br>   gem sources –remove <a href="https://rubygems.org/" target="_blank" rel="external">https://rubygems.org/</a><br> 2) 使用新的源<br>gem sources -a <a href="https://ruby.taobao.org/" target="_blank" rel="external">https://ruby.taobao.org/</a><br> 3) 验证新源是否替换成功<br>gem sources -l</li>
+</ul>
+<ol>
+<li><p>安装CocoaPods<br>(1)sudo gem install cocoapods 备注：苹果系统升级OS X EL Capitan后改为$sudo gem install -n /usr/local/bin cocoapods</p>
+</li>
+<li><p>更新gem<br>sudo gem update –system</p>
+</li>
+<li><p>新建工程，并在终端用cd指令到文件夹内</p>
+</li>
+</ol>
 <p>$pod search 第三方</p>
-<p>7.新建文件 vim “Podfile”，</p>
+<ol>
+<li>新建文件 vim “Podfile”，</li>
+</ol>
 <p>$vim Podfile</p>
 <p>写入以下内容并保存 小提示：（终端vim文件 按 i 可编辑 ，esc 退出编辑，：wq  可保存退出）</p>
 <p>platform:ios, ‘6.0’<br>pod ‘AFNetworking’, ‘~&gt; 2.3.1’    &lt;——-第三方</p>
-<p>8.导入第三方库<br>$pod install</p>
+<ol>
+<li>导入第三方库<br>$pod install</li>
+</ol>
 <p>9.退出终端</p>
 
       
@@ -218,17 +233,8 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/01/28/CocoaPods被卡住/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/01/28/数据处理之文件读写/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/04/09/PHP与Web页面交互/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title"></div>
       <strong class="article-nav-caption">></strong>
     </a>
@@ -264,7 +270,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="CocoaPods最新版" data-title="" data-url="http://yoursite.com/2016/01/28/CocoaPods最新版/"></div>
+	<div class="ds-thread" data-thread-key="CocoaPods最新版" data-title="" data-url="http://yoursite.com/2016/04/13/CocoaPods最新版/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
