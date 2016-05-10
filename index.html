@@ -173,6 +173,74 @@
 
       <div class="body-wrap">
   
+    <article id="post-GCD" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/10/GCD/" class="article-date">
+  	<time datetime="2016-05-10T07:13:56.000Z" itemprop="datePublished">2016-05-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="GCD">GCD</h1><p>在 GCD 中，加入了两个非常重要的概念： 任务 和 队列。</p>
+<p>任务：即操作，就是一段代码，在 GCD 中就是一个 Block，所以添加任务十分方便。任务有两种执行方式： 同步执行 和 异步执行，同步（sync） 和 异步（async） 的主要区别在于会不会阻塞当前线程，直到 Block 中的任务执行完毕！</p>
+<ul>
+<li>同步（sync） 操作，它会阻塞当前线程并等待 Block 中的任务执行完毕，然后当前线程才会继续往下运行。</li>
+<li>异步（async）操作，当前线程会直接往下执行，它不会阻塞当前线程。</li>
+</ul>
+<p>队列：用于存放任务。一共有两种队列， 串行队列 和 并行队列</p>
+<ul>
+<li>串行队列的任务，GCD 会 FIFO（先进先出） 地取出来一个，执行一个，然后取下一个，这样一个一个的执行</li>
+<li><p>并行队列的任务，GCD 也会 FIFO的取出来，但不同的是，它取出来一个就会放到别的线程，然后再取出来一个又放到另一个的线程。这样由于取的动作很快，忽略不计，看起来，所有的任务都是一起执行的。不过需要注意，GCD 会根据系统资源控制并行的数量，所以如果任务很多，它并不会让所有任务同时执行。</p>
+<pre><code>          同步执行                    异步执行
+串行队列    当前线程，一个一个执行    其他线程，一个一个执行
+并行队列    当前线程，一个一个执行    开很多线程，一起执行
+</code></pre></li>
+</ul>
+<p>创建队列</p>
+<ul>
+<li>主队列：这是一个特殊的 串行队列。什么是主队列，大家都知道吧，它用于刷新 UI，任何需要刷新 UI 的工作都要在主队列执行，所以一般耗时的任务都要放到别的线程执行。</li>
+<li>自己创建的队列：凡是自己创建的队列都是 串行队列。 其中第一个参数是标识符，用于 DEBUG 的时候标识唯一的队列，可以为空，第二个参数用来表示创建的队列是串行的还是并行的，传入 DISPATCH_QUEUE_SERIAL 或 NULL 表示创建串行队列。传入 DISPATCH_QUEUE_CONCURRENT 表示创建并行队列</li>
+<li>全局并行队列：这应该是唯一一个并行队列， 只要是并行任务一般都加入到这个队列。这是系统提供的一个并发队列</li>
+</ul>
+<p>创建任务</p>
+<ul>
+<li>同步任务：会阻塞当前线程 (SYNC)</li>
+<li>异步任务：不会阻塞当前线程 (ASYNC)</li>
+</ul>
+<p>队列组<br>队列组可以将很多队列添加到一个组里，这样做的好处是，当这个组里所有的任务都执行完了，队列组会通过一个方法通知我们。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-CocoaPods最新版" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -217,47 +285,6 @@
 </li>
 </ol>
 
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-PHP与Web页面交互" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/09/PHP与Web页面交互/" class="article-date">
-  	<time datetime="2016-04-09T00:34:53.000Z" itemprop="datePublished">2016-04-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="PHP与Web页面交互">PHP与Web页面交互</h1>
       
     </div>
     
