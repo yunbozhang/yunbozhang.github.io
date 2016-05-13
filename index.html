@@ -173,6 +173,55 @@
 
       <div class="body-wrap">
   
+    <article id="post-AFN" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/13/AFN/" class="article-date">
+  	<time datetime="2016-05-13T05:58:11.000Z" itemprop="datePublished">2016-05-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="AFN">AFN</h1><p>iOS”Request failed: unacceptable content-type: text/html”</p>
+<p>每次更新ADNetworking都要改，唉<br>下面是错误信息：</p>
+<p>获取服务器响应出错error=ErrorDomain=com.alamofire.error.serialization.response Code=-1016”Request failed: unacceptable content-type: text/html”UserInfo=0x7fdfd8729680{com.alamofire.serialization.response.error.response= { URL:<a href="http://172.16.1.31:7001/itom/getwork" target="_blank" rel="external">http://172.16.1.31:7001/itom/getwork</a> } { status code: 200, headers{**</p>
+<p>“Cache-Control” = “no-cache”;<br>“Content-Type” = “text/html;charset=UTF-8”;<br>Date= “Mon, 24 Nov 2014 03:13:16 GMT”;<br>“Transfer-Encoding” = Identity;<br>“X-Powered-By” = “Servlet/2.5 JSP/2.1”;<br>**} },NSErrorFailingURLKey=<a href="http://172.16.1.31:7001/itom/getwork,com.alamofire.serialization.response.error.data=" target="_blank" rel="external">http://172.16.1.31:7001/itom/getwork,com.alamofire.serialization.response.error.data=</a><5b7b227374617475 65737322="" 73756363="" 73223a22="" 2c226d73="" 67223a22="" e799bbe99986e688="" 90e58a9f="" 227d5d="">, NSLocalizedDescription=Requestfailed: unacceptable content-type: text/html}</5b7b227374617475></p>
+<p>对应到自己的项目里面，我用的是AFNetworking这套网络请求包，需要改的是：</p>
+<p>AFURLResponseSerialization.m文件</p>
+<p>223行：</p>
+<p>self.acceptableContentTypes =[NSSetsetWithObjects:@”application/json”, @”text/html”<br>,@”text/json”,@”text/javascript”, nil];</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-GCD" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -819,59 +868,6 @@ NSData *buffer = [srcFile readDataToEndOfFile];
 <li>./openfire.sh<br>终端输出结果：<br>Admin console listening at <a href="http://niufangludemacbook-pro.local:9090" target="_blank" rel="external">http://niufangludemacbook-pro.local:9090</a></li>
 </ol>
 <p>通过以上命令还有结果的输出证明Openfire已经可以启动成功了</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-iOS支付" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/14/iOS支付/" class="article-date">
-  	<time datetime="2016-03-14T08:27:07.000Z" itemprop="datePublished">2016-03-14</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="iOS开发支付功能">iOS开发支付功能</h1><ul>
-<li>微信支付<a href="https://pay.weixin.qq.com/wiki/doc/api/index.html" target="_blank" rel="external">微信网址</a></li>
-<li>支付宝支付<a href="https://b.alipay.com/order/productDetail.htm?productId=2015110218010538&amp;tabId=1#ps-tabinfo-hash%20http://doc.open.alipay.com/doc2/detail?treeId=59&amp;articleId=103563&amp;docType=1" target="_blank" rel="external">支付宝支付</a><ul>
-<li>支付宝移动支付<a href="https://doc.open.alipay.com/doc2/detail?treeId=59&amp;articleId=103563&amp;docType=1" target="_blank" rel="external">移动支付</a></li>
-<li>银联支付<a href="https://open.unionpay.com/ajweb/index" target="_blank" rel="external">银联支付</a></li>
-<li>百度钱包支付<a href="http://apistore.baidu.com/astore/serviceinfo/1479.html" target="_blank" rel="external">百度钱包</a></li>
-<li>QQ钱包支付<a href="http://qpay.qq.com" target="_blank" rel="external">QQ钱包</a></li>
-<li>ApplePay支付<a href="https://developer.apple.com/apple-pay/" target="_blank" rel="external">ApplePay</a></li>
-</ul>
-</li>
-</ul>
-<p>微信支付详解博客<a href="http://www.cnblogs.com/goodboy-heyang/p/5255818.html" target="_blank" rel="external">微信支付详解</a></p>
 
       
     </div>
