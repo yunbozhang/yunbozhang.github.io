@@ -6,22 +6,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>玻璃</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="AFNiOS”Request failed: unacceptable content-type: text/html”
-每次更新ADNetworking都要改，唉下面是错误信息：
-获取服务器响应出错error=ErrorDomain=com.alamofire.error.serialization.response Code=-1016”Request failed: unacceptable">
+  <meta name="description" content="静态库问题一、Xcode编译出现Link错误,出现”duplicate symbols for architecture i386 clang”提示.问题:链接时,项目有重名文件.解决:根据错误提示,做如下检查:1.Taraget-&amp;gt;Build Settings-&amp;gt;Link Binary With Libraries检查是否有重复lib.2.全工程搜索下重名文件,决定如何删除.
+二、关">
 <meta property="og:type" content="article">
 <meta property="og:title" content="玻璃">
-<meta property="og:url" content="http://yoursite.com/2016/05/13/AFN/index.html">
+<meta property="og:url" content="http://yoursite.com/2016/05/24/静态库问题/index.html">
 <meta property="og:site_name" content="玻璃">
-<meta property="og:description" content="AFNiOS”Request failed: unacceptable content-type: text/html”
-每次更新ADNetworking都要改，唉下面是错误信息：
-获取服务器响应出错error=ErrorDomain=com.alamofire.error.serialization.response Code=-1016”Request failed: unacceptable">
-<meta property="og:updated_time" content="2016-05-13T05:58:11.000Z">
+<meta property="og:description" content="静态库问题一、Xcode编译出现Link错误,出现”duplicate symbols for architecture i386 clang”提示.问题:链接时,项目有重名文件.解决:根据错误提示,做如下检查:1.Taraget-&amp;gt;Build Settings-&amp;gt;Link Binary With Libraries检查是否有重复lib.2.全工程搜索下重名文件,决定如何删除.
+二、关">
+<meta property="og:updated_time" content="2016-05-24T03:55:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="玻璃">
-<meta name="twitter:description" content="AFNiOS”Request failed: unacceptable content-type: text/html”
-每次更新ADNetworking都要改，唉下面是错误信息：
-获取服务器响应出错error=ErrorDomain=com.alamofire.error.serialization.response Code=-1016”Request failed: unacceptable">
+<meta name="twitter:description" content="静态库问题一、Xcode编译出现Link错误,出现”duplicate symbols for architecture i386 clang”提示.问题:链接时,项目有重名文件.解决:根据错误提示,做如下检查:1.Taraget-&amp;gt;Build Settings-&amp;gt;Link Binary With Libraries检查是否有重复lib.2.全工程搜索下重名文件,决定如何删除.
+二、关">
   
     <link rel="alternative" href="/atom.xml" title="玻璃" type="application/atom+xml">
   
@@ -178,11 +175,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-AFN" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-静态库问题" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/05/13/AFN/" class="article-date">
-  	<time datetime="2016-05-13T05:58:11.000Z" itemprop="datePublished">2016-05-13</time>
+      <a href="/2016/05/24/静态库问题/" class="article-date">
+  	<time datetime="2016-05-24T03:55:35.000Z" itemprop="datePublished">2016-05-24</time>
 </a>
     </div>
   
@@ -193,14 +190,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="AFN">AFN</h1><p>iOS”Request failed: unacceptable content-type: text/html”</p>
-<p>每次更新ADNetworking都要改，唉<br>下面是错误信息：</p>
-<p>获取服务器响应出错error=ErrorDomain=com.alamofire.error.serialization.response Code=-1016”Request failed: unacceptable content-type: text/html”UserInfo=0x7fdfd8729680{com.alamofire.serialization.response.error.response= { URL:<a href="http://172.16.1.31:7001/itom/getwork" target="_blank" rel="external">http://172.16.1.31:7001/itom/getwork</a> } { status code: 200, headers{**</p>
-<p>“Cache-Control” = “no-cache”;<br>“Content-Type” = “text/html;charset=UTF-8”;<br>Date= “Mon, 24 Nov 2014 03:13:16 GMT”;<br>“Transfer-Encoding” = Identity;<br>“X-Powered-By” = “Servlet/2.5 JSP/2.1”;<br>**} },NSErrorFailingURLKey=<a href="http://172.16.1.31:7001/itom/getwork,com.alamofire.serialization.response.error.data=" target="_blank" rel="external">http://172.16.1.31:7001/itom/getwork,com.alamofire.serialization.response.error.data=</a><5b7b227374617475 65737322="" 73756363="" 73223a22="" 2c226d73="" 67223a22="" e799bbe99986e688="" 90e58a9f="" 227d5d="">, NSLocalizedDescription=Requestfailed: unacceptable content-type: text/html}</5b7b227374617475></p>
-<p>对应到自己的项目里面，我用的是AFNetworking这套网络请求包，需要改的是：</p>
-<p>AFURLResponseSerialization.m文件</p>
-<p>223行：</p>
-<p>self.acceptableContentTypes =[NSSetsetWithObjects:@”application/json”, @”text/html”<br>,@”text/json”,@”text/javascript”, nil];</p>
+        <h1 id="静态库问题">静态库问题</h1><p>一、Xcode编译出现Link错误,出现”duplicate symbols for architecture i386 clang”提示.<br>问题:链接时,项目有重名文件.<br>解决:<br>根据错误提示,做如下检查:<br>1.Taraget-&gt;Build Settings-&gt;Link Binary With Libraries检查是否有重复lib.<br>2.全工程搜索下重名文件,决定如何删除.</p>
+<p>二、关于Category位于静态库时,引用该静态库的工程使用Category,出现”unrecognized selector sent to class”提示.<br>问题:标准UNIX静态库与Objective-C之间Linker的差异.在标准的UNIX静态库内,linker symbol是依照每一个类别而产生的,但由于Category并没有真正产生一个类别,所以出错.<br>解决:<br>1.在该静态库的Taraget-&gt;Build Settings-&gt;Other Linker Flags-&gt;加上 -ObjC.<br>2.在使用该静态库的工程Taraget-&gt;Build Settings-&gt;Other Linker Flags-&gt;加上-all_load或-force_load.</p>
+<p>三、编译warning：ld: warning: directory not found for option ‘-L’.<br>问题:通常是Path问题.<br>解决:<br>Taraget-&gt;Build Settings-&gt;Library Search Paths 和 Framework Search Paths,删掉编译报warning的路径即OK</p>
+<p>四、引入(带源码的)静态库所需配置.<br>步骤:<br>1.Add Files to.. 加入静态库的.xcodeproj 文件,不要勾选Copy Items.. 选项。(可以先把源代码项目先复制到使用项目文件夹下)<br>2.Target-&gt;Build Phases-&gt;Target Dependecies-&gt;加静态库 &amp;&amp; Link Binary With Libraries-&gt;加静态库.<br>3.配置静态库头文件路径,在Taraget-&gt;Build Settings-&gt;User Header Search Paths-&gt;配上静态库的物理路径.</p>
+<p>[错误tips: 若出现加入的.xcodeproj无法展开,则在Xcode中关闭静态库项目即可]</p>
+<p>PS:只有.a 和 .h的静态库,则直接拖入项目即可。</p>
+<p>五,关于重构,解决跨层调用问题,<br>常用选择:<br>1.传参(包括静态变量的使用)<br>2.传回调<br>3.直接移动调用的代码(若代码出现在不适合的地方,移动类/方法/etc)</p>
 
       
     </div>
@@ -210,17 +206,8 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/05/24/静态库问题/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/05/10/GCD/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/05/13/AFN/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title"></div>
       <strong class="article-nav-caption">></strong>
     </a>
@@ -256,7 +243,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="AFN" data-title="" data-url="http://yoursite.com/2016/05/13/AFN/"></div>
+	<div class="ds-thread" data-thread-key="静态库问题" data-title="" data-url="http://yoursite.com/2016/05/24/静态库问题/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
